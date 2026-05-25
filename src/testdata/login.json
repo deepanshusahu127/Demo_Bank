@@ -3,5 +3,10 @@
     "loginDetails" : {
         "username" : "admin",
         "password" : "admin123"
-    }
+    },
+
+  "viewerdetails": {
+    "username": "viewer",
+    "password": "viewer123"
+  }
 }

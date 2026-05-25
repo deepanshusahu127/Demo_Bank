@@ -1,27 +1,14 @@
-import {Page, expect} from "@playwright/test";
-import {loginPage} from "../page/loginpage";
-import testdata from "../testdata/login.json";
-
-type loginDetails = {
-    username : string,
-    password : string,
-}
-
-export class loginAction {
-    private readonly loginPages : loginPage;
-
-    constructor(page:Page)
-    {
-        this.loginPages = new loginPage(page); 
+import { Loginpage } from "../page/loginpage";
+import { expect,Page } from "playwright/test";
+export class LoginAction{
+    constructor(private readonly loginpage:Loginpage)
+    {}
+        async loginDetails(UserName:string,Password:string){
+            await this.loginpage.username.fill(UserName)
+            await this.loginpage.password.fill(Password)
+            await this.loginpage.remainderme.check()
+            await this.loginpage.loginbutton.click()
+            await expect(this.loginpage.page).toHaveTitle('Bank Dashboard – SecureBank Demo | QA Playground');
+            
+        }
     }
-
-
-    async loginToAcpplication(testdata: loginDetails) 
-    {
-        await this.loginPages.username.fill(testdata.username);
-        await this.loginPages.password.fill(testdata.password);
-        await expect(this.loginPages.loginButton).toBeVisible();
-        await this.loginPages.loginButton.click();
-        await expect(this.loginPages.userLoginValidation).toBeVisible();
-    }
-}

@@ -1,22 +1,25 @@
-import {test as base, expect} from "@playwright/test";
-import {loginAction} from "../action/loginaction";
-import testdata from "../testdata/login.json";
+import { test as base, expect } from "@playwright/test";
+import { LoginAction } from "../action/loginaction"
+import { Loginpage } from "../page/loginpage";
 
 type appActions = {
-    loginActions : loginAction
+    
+    login: LoginAction;
 }
-
 type Fixtures = {
-    appAction : appActions
+    appAction : appActions;
+    
 }
 
 export const test = base.extend<Fixtures>({
-    appAction : async ({page}, use) => {
-        const appAction : appActions = {
-            loginActions : new loginAction(page)
+    appAction: async ({page}, use) => {
+        const appAction: appActions = {
+            
+            login: new LoginAction(new Loginpage(page))
+            
         }
         await use(appAction);
     }
-});
+})
 
-export {expect}
+export{expect};
