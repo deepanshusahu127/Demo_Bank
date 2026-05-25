@@ -1,0 +1,7 @@
+{
+    "BaseURL" : "https://qaplayground.com/bank",
+    "loginDetails" : {
+        "username" : "admin",
+        "password" : "admin123"
+    }
+}
