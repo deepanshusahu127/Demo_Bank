@@ -1,10 +1,9 @@
 {
-  "BaseURL": "https://qaplayground.com/bank",
-
-  "usersdetails": {
-    "username": "admin",
-    "password": "admin123"
-  },
+    "BaseURL" : "https://qaplayground.com/bank",
+    "loginDetails" : {
+        "username" : "admin",
+        "password" : "admin123"
+    },
 
   "viewerdetails": {
     "username": "viewer",
