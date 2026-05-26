@@ -15,7 +15,7 @@ test("logout  to application", async ({page, appAction}) => {
 })
 
 
-test.only("Create Account", async ({page, appAction}) => {
+test("Create Account", async ({page, appAction}) => {
     //login the applications
     await page.goto(testdata.BaseURL);
     await appAction.login.createAccount(testdata.loginDetails.username,testdata.loginDetails.password,testdata.AccountName);
