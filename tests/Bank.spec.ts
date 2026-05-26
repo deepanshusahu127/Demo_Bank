@@ -13,3 +13,4 @@ test('Create a new Account and verify Account count', async({page, appAction}) =
     await appAction.login.addAccounts(testdata.loginDetails.username,testdata.loginDetails.password,accuntdata.accountDetails);
 })
 
+
